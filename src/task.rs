@@ -1,6 +1,6 @@
+use serde::Deserialize;
 use std::collections::HashMap;
 use topological_sort::TopologicalSort;
-use serde::Deserialize;
 
 #[derive(Deserialize)]
 pub struct Task {
@@ -15,7 +15,6 @@ pub fn build_dag(tasks: &[Task]) -> TopologicalSort<usize> {
     for task in tasks {
         if task.depends_on.is_empty() {
             ts.insert(task.id);
-
         } else {
             for dependency in &task.depends_on {
                 ts.add_dependency(*dependency, task.id);
@@ -44,8 +43,7 @@ pub fn build_task_map(tasks: Vec<Task>) -> HashMap<usize, Task> {
     task_map
 }
 
-#[derive( Deserialize)]
-pub struct TaskWrapper{
-    pub tasks: Vec<Task>
-
+#[derive(Deserialize)]
+pub struct TaskWrapper {
+    pub tasks: Vec<Task>,
 }

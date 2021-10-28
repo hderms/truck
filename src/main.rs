@@ -1,14 +1,13 @@
-mod task;
 mod config;
+mod task;
 
 use crate::task::{build_dag, build_task_array, build_task_map, TaskWrapper};
+use clap::Parser;
+use config::Config;
 use std::collections::HashMap;
 use std::process::Command;
 use std::sync::{Arc, Barrier};
 use task::Task;
-use config::Config;
-use clap::Parser;
-
 
 fn process_batch(batch: Vec<usize>, task_map: &HashMap<usize, Task>) -> std::thread::Result<()> {
     let len = batch.len();
@@ -49,8 +48,7 @@ fn process_tasks(tasks: Vec<Task>) {
     }
 }
 
-fn main()  {
-
+fn main() {
     let config: Config = Config::parse();
 
     let output = std::fs::read_to_string(config.filename).unwrap();
