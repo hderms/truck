@@ -27,3 +27,17 @@ command = "echo"
 args = ["3"]
 depends_on = [2]
 ```
+outputs:
+```
+Task: "echo" "foo"
+        foo
+
+Task: "echo" "bar"
+        bar
+
+Task: "echo" "3"
+        3
+
+Task: "echo" "done"
+        done
+```
