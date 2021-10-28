@@ -3,8 +3,6 @@ use std::collections::HashMap;
 use std::process::Command;
 use std::sync::{Arc, Barrier};
 
-
-
 /// Process a Vector of Tasks by topologically sorting them based on dependencies,
 /// popping off batches of free tasks and then running them in parallel until we're done
 pub fn process_tasks(tasks: Vec<Task>) {
