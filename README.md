@@ -2,7 +2,7 @@
 simple Make-like command runner configured using TOML
 
 ## Example
-```
+``` toml
 [[tasks]]
 id = 1
 command = "echo"
