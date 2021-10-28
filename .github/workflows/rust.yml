@@ -13,6 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Cargo cache
         id: cargo-cache
         uses: actions/cache@v2
@@ -24,7 +25,6 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Check formatting
         run: cargo fmt -- --check
-      - uses: actions/checkout@v2
       - name: Build
         run: cargo build --verbose
       - name: Run tests
