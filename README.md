@@ -1,5 +1,5 @@
 # Truck
-simple Make-like command runner configured using TOML
+simple/toy Make-like command runner configured using TOML. 
 
 ## Example
 ``` toml
