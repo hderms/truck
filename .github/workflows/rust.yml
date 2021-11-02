@@ -23,6 +23,8 @@ jobs:
             ~/.cargo/git
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: "Drop github action ID"
+        run: echo ${{github.run_id}}
       - name: Check formatting
         run: cargo fmt -- --check
       - name: Build
