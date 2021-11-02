@@ -10,6 +10,7 @@ use std::sync::{Arc, Barrier};
 use task::Task;
 
 fn process_batch(batch: Vec<usize>, task_map: &HashMap<usize, Task>) -> std::thread::Result<()> {
+
     let len = batch.len();
     let barrier = Arc::new(Barrier::new(len + 1));
     let task_array = build_task_array(batch, task_map);
